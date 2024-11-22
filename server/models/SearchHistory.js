@@ -1,17 +1,14 @@
 const mongoose = require('mongoose');
 
-const searchHistorySchema = new mongoose.Schema({
-  term: { type: String, required: true },
-  date: { type: Date, default: Date.now },
-  articles: [
-    {
-      title: String,
-      url: String
-    }
-  ]
+const clickedArticleSchema = new mongoose.Schema({
+  articleTitle: String,
+  articleUrl: String,
+  searchTerm: String,
+  dateClicked: { type: Date, default: Date.now }
 });
 
-const SearchHistory = mongoose.model('SearchHistory', searchHistorySchema);
+const ClickedArticle = mongoose.model('ClickedArticle', clickedArticleSchema);
 
-module.exports = SearchHistory;
+module.exports = ClickedArticle;
+
 
